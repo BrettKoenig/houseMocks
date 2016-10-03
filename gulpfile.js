@@ -6,7 +6,9 @@ wrapper = require('gulp-wrapper'),
 htmlclean = require('gulp-htmlclean'),
 open = require('gulp-open'),
 inject = require('gulp-inject'),
-connect = require('gulp-connect');
+htmlreplace = require('gulp-html-replace'),
+connect = require('gulp-connect'),
+fs = require('fs');
 
 gulp.task('connect', function () {
     connect.server({
@@ -16,7 +18,7 @@ gulp.task('connect', function () {
 
 gulp.task('inject', function () {
     gulp.src('./*.html')
-  .pipe(inject(gulp.src(['./src/**/*.js'], { read: false })))
+  .pipe(inject(gulp.src(['js/templates.js', 'js/jquery.js', 'js/bootstrap.min.js', 'css/app.css', 'css/custom.css', 'font-awesome/css/font-awesome.min.css'], { read: false }), {relative:true}))
   .pipe(gulp.dest('./'));
 });
 
@@ -75,6 +77,6 @@ gulp.task('app', function () {
     .pipe(open(options));
 });
 
-gulp.task('default', ['styles', 'templates', 'express', 'connect', 'watch', 'app'], function () {
+gulp.task('default', ['styles', 'templates', 'express', 'connect', 'watch', 'app', 'inject'], function () {
 
 });
