@@ -1,3 +1,0 @@
--potentially download jquery
--get missing stuff from old-css, old-fonts, old-js
--may need to rename stylesheets folder to css
