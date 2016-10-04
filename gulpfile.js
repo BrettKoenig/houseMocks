@@ -22,20 +22,15 @@ gulp.task('inject', function () {
   .pipe(gulp.dest('./'));
 });
 
-gulp.task('html', function () {
-    gulp.src('./*.html')
-      .pipe(connect.reload());
-});
-
-gulp.task('js', function () {
-    gulp.src('./*.js')
+gulp.task('recompile', function () {
+    gulp.src('./')
       .pipe(connect.reload());
 });
 
 gulp.task('watch', function () {
-    gulp.watch(['./*.html'], ['html']);
-    gulp.watch(['./*.js'], ['js']);
-    gulp.watch('sass/*.scss', ['styles']);
+    gulp.watch(['./*.html'], ['recompile']);
+    gulp.watch(['./*.js'], ['recompile']);
+    gulp.watch('sass/**/*.scss', ['styles']);
 });
 
 gulp.task('styles', function () {
@@ -77,6 +72,6 @@ gulp.task('app', function () {
     .pipe(open(options));
 });
 
-gulp.task('default', ['styles', 'templates', 'express', 'connect', 'watch', 'app', 'inject'], function () {
+gulp.task('default', ['styles', 'templates', 'inject', 'express', 'connect', 'watch', 'app'], function () {
 
 });

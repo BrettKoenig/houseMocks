@@ -1,0 +1,8 @@
+[1003/180342:ERROR:process_reader_win.cc(173)] ResumeThread: The parameter is incorrect. (0x57)
+[1003/180342:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1003/180342:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1003/180342:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1003/180342:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1003/180342:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1003/180342:ERROR:process_reader_win.cc(142)] SuspendThread: Access is denied. (0x5)
+[1003/180343:ERROR:scoped_process_suspend.cc(38)] NtResumeProcess: An attempt was made to access an exiting process.  (0xc000010a)
