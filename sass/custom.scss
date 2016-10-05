@@ -197,13 +197,14 @@ li a:hover {
     padding-right: 0px !important;
 
     footer {
-        margin-top: 15px !important;
-        padding-top: 15px !important;
+        /*margin-top: 15px !important;*/
+        padding-top: 12px !important;
         padding-bottom: 0px !important;
         margin-bottom: 0px !important;
 
         div {
-            overflow:hidden;
+            overflow: hidden;
+
             p {
                 padding-left: 15px;
                 padding-right: 15px;
@@ -216,4 +217,16 @@ li a:hover {
     background-color: $navbar-inverse-bg;
     border-color: $navbar-inverse-border;
     color: $navbar-inverse-color;
+}
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+.navbar .container{
+    width:100%;
+}
+
+.panel-body{
+    min-height:130px;
 }

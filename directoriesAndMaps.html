@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ohio House of Representatives Intranet</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="js/templates.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- endinject -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        document.querySelector('#navbar').innerHTML = templates.navbar();
+    </script>
+    <!-- Navigation -->
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Directories & Maps
+                    <small></small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Image Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="http://placehold.it/1200x300" alt="">
+            </div>
+        </div>
+
+        <hr />
+        <!-- /.row -->
+        <!-- Service Panels -->
+        <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Phone Directories</div>
+                    <div class="panel-body">
+                        You can find the searchable online House directory and printed versions of both the House and Senate directories here.
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-primary btn-block">Go </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Building Maps & Floorplans</div>
+                    <div class="panel-body">
+                        House Chamber seating charts and floor plans for the Riffe Center and Statehouse are located here.
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-primary btn-block">Go </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">State Agencies & Liaisons</div>
+                    <div class="panel-body">
+                        To find listings and directory information for State Agencies and Agency Liaisons, use this service.
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-primary btn-block">Go </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Constituent to District Lookup</div>
+                    <div class="panel-body">
+                        Use this feature to look up districts by the constituents address or name.
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-primary btn-block">Go </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Lobbyists</div>
+                    <div class="panel-body">
+                        Information for all currently registered legislative agents, executive agency and retirement system lobbyists, and their employers.
+                    </div>
+                    <div class="panel-footer">
+                        <button type="button" class="btn btn-primary btn-block">Go </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="footer" class="container-fluid"></div>
+    <script>
+        document.querySelector('#footer').innerHTML = templates.footer();
+    </script>
+    <!-- /.container -->
+    <!-- Script to Activate the Carousel -->
+</body>
+</html>
