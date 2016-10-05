@@ -240,104 +240,160 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="inline">
-                                <i class="fa fa-fw fa-newspaper-o"></i> News Feeds
+                            <h4 class="">
+                                <i class="fa fa-fw fa-newspaper-o"></i> News
                             </h4>
-                            <div class="inline pull-right dropdown">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="newsDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                    Feed
-                                    <span class="caret"></span>
-                                </button>
-                                <ul class="dropdown-menu" id="news" aria-labelledby="newsDropdownMenu">
-                                    <li>
-                                        <a onclick="showFeed('breaking')">Breaking</a>
-                                    </li>
-                                    <li>
-                                        <a onclick="showFeed('house')">House of Reps</a>
-                                    </li>
-                                    <li>
-                                        <a onclick="showFeed('government')">Government</a>
-                                    </li>
-                                    <li>
-                                        <a onclick="showFeed('contemporary')">Contemporary Issues</a>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="panel-body">
-                            <!--BREAKING-->
-                            <div class="" id="breaking">
-                                <h3>Breaking News</h3>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Breaking #1</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Breaking #2</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Breaking #3</h4>
-                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
+                            <ul class="nav nav-tabs nav-justified">
+                                <li role="presentation" class="active"><a data-toggle="tab" href="#feeds">Feeds</a></li>
+                                <li role="presentation"><a data-toggle="tab" href="#subscriptions">Subscriptions</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade in active" id="feeds">
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary btn-block dropdown-toggle" type="button" id="newsDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Choose Feed
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" id="news" aria-labelledby="newsDropdownMenu">
+                                            <li>
+                                                <a onclick="showFeed('breaking')">Breaking</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="showFeed('house')">House of Reps</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="showFeed('government')">Government</a>
+                                            </li>
+                                            <li>
+                                                <a onclick="showFeed('contemporary')">Contemporary Issues</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--BREAKING-->
+                                    <div class="" id="breaking">
+                                        <h3>Breaking News</h3>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Breaking #1</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Breaking #2</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Breaking #3</h4>
+                                                <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                        </div>
+                                        <a href="">See More...</a>
+                                    </div>
+                                    <!--/BREAKING-->
+                                    <div class="hide" id="house">
+                                        <h3>House of Representatives</h3>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Reps #1</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Reps #2</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Reps #3</h4>
+                                                <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                        </div>
+                                        <a href="">See More...</a>
+                                    </div>
+                                    <div class="hide" id="government">
+                                        <h3>Government</h3>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Gov #1</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Gov #2</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Gov #3</h4>
+                                                <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                        </div>
+                                        <a href="">See More...</a>
+                                    </div>
+                                    <div class="hide" id="contemporary">
+                                        <h3>Contemporary Issues</h3>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Contemp #1</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Contemp #2</h4>
+                                                <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                            <a href="#" class="list-group-item">
+                                                <h4 class="list-group-item-heading">Contemp #3</h4>
+                                                <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                            </a>
+                                        </div>
+                                        <a href="">See More...</a>
+                                    </div>
                                 </div>
-                                <a href="">See More...</a>
-                            </div>
-                            <!--/BREAKING-->
-                            <div class="hide" id="house">
-                                <h3>House of Representatives</h3>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Reps #1</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Reps #2</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Reps #3</h4>
-                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
+                                <div class="tab-pane fade" id="subscriptions">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <h4 class="list-group-item-heading text-center">Columbus Dispatch</h4>
+                                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-primary" data-toggle="popover" title="Username: email@email.com" data-content="Password: ****">Show Info</button>
+                                                </div>
+                                                <div class="btn-group" role="group">
+                                                    <a href="http://www.dispatch.com" class="btn btn-primary">Go</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h4 class="list-group-item-heading text-center">Cincinnati Enquirer</h4>
+                                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-primary" data-toggle="popover" title="Username: email@email.com" data-content="Password: ****">Show Info</button>
+                                                </div>
+                                                <div class="btn-group" role="group">
+                                                    <a href="http://www.cincinnati.com" class="btn btn-primary">Go</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h4 class="list-group-item-heading text-center">Dayton Daily News</h4>
+                                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-primary" data-toggle="popover" title="Username: email@email.com" data-content="Password: ****">Show Info</button>
+                                                </div>
+                                                <div class="btn-group" role="group">
+                                                    <a href="http://www.daytondailynews.com" class="btn btn-primary">Go</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <h4 class="list-group-item-heading text-center">Toledo Blade</h4>
+                                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-primary" data-toggle="popover" title="Username: email@email.com" data-content="Password: ****">Show Info</button>
+                                                </div>
+                                                <div class="btn-group" role="group">
+                                                    <a href="http://www.toledoblade.com" class="btn btn-primary">Go</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <a href="">See More...</a>
-                            </div>
-                            <div class="hide" id="government">
-                                <h3>Government</h3>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Gov #1</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Gov #2</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Gov #3</h4>
-                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
-                                </div>
-                                <a href="">See More...</a>
-                            </div>
-                            <div class="hide" id="contemporary">
-                                <h3>Contemporary Issues</h3>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Contemp #1</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Contemp #2</h4>
-                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <h4 class="list-group-item-heading">Contemp #3</h4>
-                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                    </a>
-                                </div>
-                                <a href="">See More...</a>
                             </div>
                         </div>
                     </div>
@@ -347,13 +403,12 @@
             <!-- /.col-md-4 -->
         </div>
         <!-- /.row -->
-        <hr>
         <!-- Footer -->
-        <div id="footer"></div>
-        <script>
-            document.querySelector('#footer').innerHTML = templates.footer();
-        </script>
     </div>
+    <div id="footer" class="container-fluid"></div>
+    <script>
+            document.querySelector('#footer').innerHTML = templates.footer();
+    </script>
     <!-- /.container -->
     <!-- Script to Activate the Carousel -->
     <script>
@@ -418,6 +473,9 @@
                 }
             }
         }
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
     </script>
 </body>
 </html>
