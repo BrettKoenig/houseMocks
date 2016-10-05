@@ -32,7 +32,7 @@ th {
       > td {
         padding: $table-cell-padding;
         line-height: $line-height-base;
-        vertical-align: top;
+        vertical-align: middle;
         border-top: 1px solid $table-border-color;
       }
     }
@@ -111,7 +111,7 @@ th {
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
 .table-striped {
-  > tbody > tr:nth-of-type(odd) {
+  > tbody > tr:nth-of-type(even) {
     background-color: $table-bg-accent;
   }
 }

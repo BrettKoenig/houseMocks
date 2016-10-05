@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -74,7 +74,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    The Ohio House of Representatives Intranet
+                    Ohio House of Representatives Intranet
                 </h1>
             </div>
             <div class="col-lg-12">
@@ -85,14 +85,14 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div class="col-md-12">
+                <div id="employeeSearch" class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4><i class="fa fa-fw fa-users"></i> Employee Directory</h4>
                         </div>
                         <div class="panel-body">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." />
+                                <input type="text" id="searchEmployeeTerm" onfocus="toggleCard(true)" onkeyup="searchEmployees()" class="form-control" placeholder="Search..." />
                                 <span class="input-group-addon">
                                     <i class="fa fa-search"></i>
                                 </span>
@@ -100,108 +100,251 @@
                             <!-- /input-group -->
                             <hr />
                             <!-- List group -->
-                            <div class="list-group">
-                                <button type="button" class="list-group-item">Adam Smith</button>
-                                <button type="button" class="list-group-item">Amanda Jones</button>
-                                <button type="button" class="list-group-item">Jon Cook</button>
-                                <button type="button" class="list-group-item">John Doe</button>
-                                <button type="button" class="list-group-item">Jane Brown</button>
+                            <ul class="list-group col-md-12" id="employeeList">
+                                <li class="list-group-item" onclick="showItem('Jane Brown')">Jane Brown <i class="fa fa-info-circle pull-right"></i></li>
+                                <li class="list-group-item" onclick="showItem('John Doe')">John Doe <i class="fa fa-info-circle pull-right"></i></li>
+                                <li class="list-group-item" onclick="showItem('Amanda Jones')">Amanda Jones <i class="fa fa-info-circle pull-right"></i></li>
+                                <li class="list-group-item" onclick="showItem('Adam Smith')">Adam Smith <i class="fa fa-info-circle pull-right"></i></li>
+                            </ul>
+                            <div id="emptyListMessage" class="alert alert-danger fade hide" role="alert">
+                                Sorry, there are no results for your search. Please try a more broad search.
+                            </div>
+                            <div id="employeeCard" class="col-md-6 hide">
+                                <div class="thumbnail">
+                                    <img class="img-responsive img-rounded" id="employeeImage" src="">
+                                    <div class="caption">
+                                        <h3 class="text-center" id="employeeName"></h3>
+                                        <table class="table table-hover table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Party</td>
+                                                    <td>X</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>District</td>
+                                                    <td>##</td>
+                                                    <td><button type="button" class="btn btn-default pull-right">See More</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Floor</td>
+                                                    <td>##</td>
+                                                    <td><button type="button" class="btn btn-default pull-right">See More</button></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone</td>
+                                                    <td colspan="2"><a href="">(614)111-1111</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td colspan="2"><a href="">email@ohiohouse.gov</a></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
+                            <h4><i class="fa fa-fw fa-calendar"></i> Schedule</h4>
                         </div>
                         <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                            <a href="#" class="btn btn-default">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4><i class="fa fa-fw fa-compass"></i> Easy to Use</h4>
-                        </div>
-                        <div class="panel-body">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                            <a href="#" class="btn btn-default">Learn More</a>
+                            <div class="agenda">
+                                <div class="table-responsive">
+                                    <table class="table table-condensed table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Event</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Single event in a single day -->
+                                            <tr class="active">
+                                                <td class="agenda-date" rowspan="1">
+                                                    <div class="dayofmonth">6</div>
+                                                    <div class="dayofweek">Thursday</div>
+                                                    <div class="shortdate text-muted">October, 2016</div>
+                                                </td>
+                                                <td class="agenda-time">
+                                                    7:30 AM
+                                                </td>
+                                                <td class="agenda-events">
+                                                    <div class="agenda-event">
+                                                        <i class="glyphicon glyphicon-repeat text-muted" title="Repeating event"></i>
+                                                        Session
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <!-- Multiple events in a single day (note the rowspan) -->
+                                            <tr>
+                                                <td class="agenda-date" rowspan="3">
+                                                    <div class="dayofmonth">7</div>
+                                                    <div class="dayofweek">Friday</div>
+                                                    <div class="shortdate text-muted">October, 2016</div>
+                                                </td>
+                                                <td class="agenda-time">
+                                                    8:00 - 9:00 AM
+                                                </td>
+                                                <td class="agenda-events">
+                                                    <div class="agenda-event">
+                                                        Election Meeting
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="agenda-time">
+                                                    10:15 AM - 12:00 PM
+                                                </td>
+                                                <td class="agenda-events">
+                                                    <div class="agenda-event">
+                                                        Meeting with executives
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--RIGHT SIDE-->
             <div class="col-md-4">
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-default">
+                <!--QUICK LINKS-->
+                <div class="col-md-12">
+                    <div class="panel panel-default no-border">
                         <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven">Lorem ipsum dolor sit amet, consectetur adipiscing elit?</a>
-                            </h4>
+                            <h4><i class="fa fa-fw fa-link"></i> Quick Links</h4>
                         </div>
-                        <div id="collapseSeven" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                        <div class="">
+                            <div class="list-group">
+                                <button type="button" class="list-group-item">Custom Link #1 <i class="fa fa-fw fa-chevron-right pull-right"></i></button>
+                                <button type="button" class="list-group-item">Custom Link #2 <i class="fa fa-fw fa-chevron-right pull-right"></i></button>
+                                <button type="button" class="list-group-item">Custom Link #3 <i class="fa fa-fw fa-chevron-right pull-right"></i></button>
+                                <button type="button" class="list-group-item">Custom Link #4 <i class="fa fa-fw fa-chevron-right pull-right"></i></button>
+                                <button type="button" class="list-group-item">Custom Link #5 <i class="fa fa-fw fa-chevron-right pull-right"></i></button>
                             </div>
                         </div>
                     </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseEight">Curabitur eget leo at velit imperdiet varius. In eu ipsum vitae velit congue iaculis vitae at risus?</a>
-                            </h4>
-                        </div>
-                        <div id="collapseEight" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseNine">Aenean consequat lorem ut felis ullamcorper?</a>
-                            </h4>
-                        </div>
-                        <div id="collapseNine" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.panel -->
                 </div>
-                <!-- /.panel-group -->
+                <!-- /QUICK LINKS-->
+                <!--NEWS-->
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="inline">
+                                <i class="fa fa-fw fa-newspaper-o"></i> News Feeds
+                            </h4>
+                            <div class="inline pull-right dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="newsDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                    Feed
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" id="news" aria-labelledby="newsDropdownMenu">
+                                    <li>
+                                        <a onclick="showFeed('breaking')">Breaking</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="showFeed('house')">House of Reps</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="showFeed('government')">Government</a>
+                                    </li>
+                                    <li>
+                                        <a onclick="showFeed('contemporary')">Contemporary Issues</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <!--BREAKING-->
+                            <div class="" id="breaking">
+                                <h3>Breaking News</h3>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Breaking #1</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Breaking #2</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Breaking #3</h4>
+                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                </div>
+                                <a href="">See More...</a>
+                            </div>
+                            <!--/BREAKING-->
+                            <div class="hide" id="house">
+                                <h3>House of Representatives</h3>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Reps #1</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Reps #2</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Reps #3</h4>
+                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                </div>
+                                <a href="">See More...</a>
+                            </div>
+                            <div class="hide" id="government">
+                                <h3>Government</h3>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Gov #1</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Gov #2</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Gov #3</h4>
+                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                </div>
+                                <a href="">See More...</a>
+                            </div>
+                            <div class="hide" id="contemporary">
+                                <h3>Contemporary Issues</h3>
+                                <div class="list-group">
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Contemp #1</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Contemp #2</h4>
+                                        <p class="list-group-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <h4 class="list-group-item-heading">Contemp #3</h4>
+                                        <p class="list-group-item-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                                    </a>
+                                </div>
+                                <a href="">See More...</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/NEWS-->
             </div>
             <!-- /.col-md-4 -->
-        </div>
-        <!-- /.row -->
-        <!-- Features Section -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="page-header">Modern Business Features</h2>
-            </div>
-            <div class="col-md-6">
-                <p>The Modern Business template by Start Bootstrap includes:</p>
-                <ul>
-                    <li>
-                        <strong>Bootstrap v3.3.7</strong>
-                    </li>
-                    <li>jQuery v1.11.1</li>
-                    <li>Font Awesome v4.2.0</li>
-                    <li>Working PHP contact form with validation</li>
-                    <li>Unstyled page elements for easy customization</li>
-                    <li>17 HTML pages</li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
-            </div>
-            <div class="col-md-6">
-                <img class="img-responsive" src="http://placehold.it/700x450" alt="">
-            </div>
         </div>
         <!-- /.row -->
         <hr>
@@ -217,6 +360,64 @@
         $('.carousel').carousel({
             interval: 5000 //changes the speed
         })
+    </script>
+    <script>
+        function toggleCard(turnOff) {
+            if (turnOff) {
+                $('#employeeCard').addClass('hide');
+                $('#employeeList').addClass('col-md-12');
+                $('#employeeList').removeClass('col-md-6');
+            }
+            else {
+                $('#employeeCard').removeClass('hide');
+                $('#employeeList').removeClass('col-md-12');
+                $('#employeeList').addClass('col-md-6');
+            }
+        }
+
+        function searchEmployees() {
+            $("#emptyListMessage").addClass("hide");
+            $("#emptyListMessage").removeClass("in");
+            // Declare variables
+            var input, filter, list, i;
+            input = document.getElementById('searchEmployeeTerm');
+            filter = input.value.toUpperCase();
+            list = document.getElementById("employeeList").getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+
+            var resultDisplayed = false;
+            for (i = 0; i < list.length; i++) {
+                if (list[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    list[i].style.display = "";
+                    resultDisplayed = true;
+                } else {
+                    list[i].style.display = "none";
+                }
+            }
+            if (!resultDisplayed) {
+                $("#emptyListMessage").removeClass("hide");
+                $("#emptyListMessage").addClass("in");
+            }
+        }
+
+        function showItem(person) {
+            $("#employeeImage").attr('src', 'images/' + person.replace(/ /g, "-") + '.jpg');
+            $("#employeeName").html(person + '<br><small>Job Title</small>');
+            toggleCard();
+        }
+
+        function showFeed(id) {
+            var feeds = ["breaking", "house", "government", "contemporary"];
+            for (var i = 0; i < feeds.length; i++) {
+                if (feeds[i] == id) {
+                    $("#" + feeds[i]).removeClass("hide");
+                }
+                else {
+                    $("#" + feeds[i]).addClass("hide");
+                }
+            }
+        }
     </script>
 </body>
 </html>
