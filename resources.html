@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ohio House of Representatives Intranet</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="js/templates.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- endinject -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="navbar"></div>
+    <script>
+        document.querySelector('#navbar').innerHTML = templates.navbar();
+    </script>
+    <!-- Navigation -->
+    
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">
+                    Resources
+                </h1>
+            </div>
+
+    </div>
+    <div id="footer" class="container-fluid"></div>
+    <script>
+            document.querySelector('#footer').innerHTML = templates.footer();
+    </script>
+    <!-- /.container -->
+    <!-- Script to Activate the Carousel -->
+    <script>
+        $('.carousel').carousel({
+            interval: 5000 //changes the speed
+        })
+    </script>
+    <script>
+        function toggleCard(turnOff) {
+            if (turnOff) {
+                $('#employeeCard').addClass('hide');
+                $('#employeeList').addClass('col-md-12');
+                $('#employeeList').removeClass('col-md-6');
+            }
+            else {
+                $('#employeeCard').removeClass('hide');
+                $('#employeeList').removeClass('col-md-12');
+                $('#employeeList').addClass('col-md-6');
+            }
+        }
+
+        function searchEmployees() {
+            $("#emptyListMessage").addClass("hide");
+            $("#emptyListMessage").removeClass("in");
+            // Declare variables
+            var input, filter, list, i;
+            input = document.getElementById('searchEmployeeTerm');
+            filter = input.value.toUpperCase();
+            list = document.getElementById("employeeList").getElementsByTagName('li');
+
+            // Loop through all list items, and hide those who don't match the search query
+
+            var resultDisplayed = false;
+            for (i = 0; i < list.length; i++) {
+                if (list[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    list[i].style.display = "";
+                    resultDisplayed = true;
+                } else {
+                    list[i].style.display = "none";
+                }
+            }
+            if (!resultDisplayed) {
+                $("#emptyListMessage").removeClass("hide");
+                $("#emptyListMessage").addClass("in");
+            }
+        }
+
+        function showItem(person) {
+            $("#employeeImage").attr('src', 'images/' + person.replace(/ /g, "-") + '.jpg');
+            $("#employeeName").html(person + '<br><small>Job Title</small>');
+            toggleCard();
+        }
+
+        function showFeed(id) {
+            var feeds = ["breaking", "house", "government", "contemporary"];
+            for (var i = 0; i < feeds.length; i++) {
+                if (feeds[i] == id) {
+                    $("#" + feeds[i]).removeClass("hide");
+                }
+                else {
+                    $("#" + feeds[i]).addClass("hide");
+                }
+            }
+        }
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover();
+        });
+    </script>
+</body>
+</html>
